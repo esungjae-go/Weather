@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="weather_page_title_margin_vertical">15dp</dimen>
+    <dimen name="weather_page_margin_horizontal">10dp</dimen>
+    <dimen name="weather_table_info_margin_horizontal">10dp</dimen>
+    <dimen name="weather_table_header_margin_vertical">5dp</dimen>
+</resources>

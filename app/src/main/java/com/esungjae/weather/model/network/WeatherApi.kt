@@ -2,18 +2,19 @@ package com.esungjae.weather.model.network
 
 import android.content.Context
 import com.google.gson.annotations.SerializedName
+import java.util.Date
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
-import java.util.*
 
 interface WeatherApi {
 
     @GET("/api/location/search/")
     fun searchLocation(@Query("query") query: String): Call<List<Location>>
 
-    @GET("/api/location/")
-    fun getWeather(@Query("woeid") woeid: Int, @Query("date") date: Date): Call<Weather>
+    @GET("/api/location/{woeid}")
+    fun getWeather(@Path("woeid") woeid: Int): Call<WeatherResponse>
 
     companion object {
         @Volatile
@@ -24,7 +25,7 @@ interface WeatherApi {
         }
 
         private fun build(context: Context): WeatherApi {
-            return RetrofitClient.build()
+            return RetrofitClient.build(context)
         }
     }
 }
@@ -49,10 +50,20 @@ data class Location(
     }
 }
 
+data class WeatherResponse(
+    val title: String,
+    @SerializedName("consolidated_weather")
+    val weathers: List<Weather>
+)
+
 data class Weather(
-    val id: Int,
     @SerializedName("applicable_date")
     val date: Date,
     @SerializedName("weather_state_name")
-    val state: String
+    val state: String,
+    @SerializedName("weather_state_abbr")
+    val state_abbr: String,
+    @SerializedName("the_temp")
+    val temperature: Float,
+    val humidity: Float
 )

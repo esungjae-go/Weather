@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LocalWeather" />
+
+    <style name="LocalWeather.State">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="LocalWeather.Number">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LocalWeather.Number.Temp">
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="LocalWeather.Title">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="LocalWeather.Header">
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

@@ -1,12 +1,11 @@
 package com.esungjae.weather.model.network.data
 
-import androidx.lifecycle.LiveData
 import com.esungjae.weather.model.network.Location
 import com.esungjae.weather.model.network.Weather
-import java.util.*
+import com.esungjae.weather.model.network.WeatherResponse
 
 interface WeatherDataSource {
 
-    fun searchLocations(query: String): LiveData<Result<List<Location>>>
-    fun getWeather(woeid: Int, date: Date): LiveData<Result<Weather>>
+    suspend fun getLocations(query: String): Result<List<Location>>
+    suspend fun getWeather(woeid: Int): Result<WeatherResponse>
 }
